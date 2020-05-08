@@ -54,7 +54,7 @@ public class SmokeListener implements Listener
 			
 			// Check for refill in offhand
 			ItemStack offItem = ply.getInventory().getItemInOffHand();
-			if (dmg > 0 && offItem != null && offItem.getType() == Main.getTobacco())
+			if (dmg > 1 && offItem != null && offItem.getType() == Main.getTobacco())
 			{
 				// "Repair" the pipe
 				damage.setDamage(Math.max(dmg - 15, 1));
