@@ -14,15 +14,9 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Main extends JavaPlugin
 {
-	private static Main instance;
 	private static NamespacedKey key;
 	
 	private static Material tobacco;
-	
-	public Main()
-	{
-		instance = this;
-	}
 	
 	@Override
 	public void onEnable()
@@ -62,11 +56,6 @@ public class Main extends JavaPlugin
 	public void onDisable()
 	{
 		
-	}
-	
-	public static Main getInstance()
-	{
-		return instance;
 	}
 	
 	public static NamespacedKey getKey()

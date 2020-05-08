@@ -3,10 +3,14 @@ package com.raus.tobaccoPipes;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.java.JavaPlugin;
+
 import net.md_5.bungee.api.ChatColor;
 
 public class ReloadCommand implements CommandExecutor
 {
+	private Main plugin = JavaPlugin.getPlugin(Main.class);
+	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
 	{
@@ -17,7 +21,7 @@ public class ReloadCommand implements CommandExecutor
 		else if (args[0].equals("info"))
 		{
 			// Send message
-			sender.sendMessage(ChatColor.GOLD + "[Pipes]" + ChatColor.GRAY + " Version " + Main.getInstance().getDescription().getVersion());
+			sender.sendMessage(ChatColor.GOLD + "[Pipes]" + ChatColor.GRAY + " Version " + plugin.getDescription().getVersion());
 			return true;
 		}
 		else if (args[0].equals("reload"))
@@ -30,7 +34,7 @@ public class ReloadCommand implements CommandExecutor
 			}
 			
 			// Reload config
-			Main.getInstance().rebuild();
+			plugin.rebuild();
 			
 			// Send message
 			sender.sendMessage(ChatColor.GOLD + "[Pipes]" + ChatColor.GRAY + " Config reloaded!");
