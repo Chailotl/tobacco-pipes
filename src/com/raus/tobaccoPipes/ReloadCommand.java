@@ -34,7 +34,7 @@ public class ReloadCommand implements CommandExecutor
 			}
 			
 			// Reload config
-			plugin.rebuild();
+			plugin.reload();
 			
 			// Send message
 			sender.sendMessage(ChatColor.GOLD + "[Pipes]" + ChatColor.GRAY + " Config reloaded!");

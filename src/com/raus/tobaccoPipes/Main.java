@@ -68,7 +68,7 @@ public class Main extends JavaPlugin
 		return tobacco;
 	}
 	
-	public void rebuild()
+	public void reload()
 	{
 		reloadConfig();
 		tobacco = Material.getMaterial(getConfig().getString("tobacco"));
