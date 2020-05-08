@@ -1,6 +1,5 @@
 package com.raus.tobaccoPipes;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,9 +18,6 @@ public class NoModifyListener implements Listener
 	{
 		ItemStack item = event.getInventory().getItem(0);
 		ItemStack sacrifice = event.getInventory().getItem(1);
-		
-		Bukkit.getLogger().info(item.getType().toString());
-		Bukkit.getLogger().info(sacrifice.getType().toString());
 		
 		if (item != null && item.getType() == Material.WOODEN_HOE)
 		{
