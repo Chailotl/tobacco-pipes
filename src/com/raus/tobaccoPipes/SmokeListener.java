@@ -30,10 +30,10 @@ public class SmokeListener implements Listener
 		Player ply = event.getPlayer();
 		ItemStack item = event.getItem();
 		Action act = event.getAction();
-		
+
 		// Is it a valid item/action
 		if (item != null && item.getType() == Material.WOODEN_HOE && ply.getCooldown(Material.WOODEN_HOE) <= 0
-			&& (act == Action.RIGHT_CLICK_AIR || act == Action.RIGHT_CLICK_BLOCK))
+				&& (act == Action.RIGHT_CLICK_AIR || act == Action.RIGHT_CLICK_BLOCK))
 		{
 			// Did we right click an interactible?
 			if (act == Action.RIGHT_CLICK_BLOCK)
@@ -45,53 +45,55 @@ public class SmokeListener implements Listener
 					return;
 				}
 			}
-			
-			// Get meta and damage
+
+			// Get meta and data
 			ItemMeta meta = item.getItemMeta();
 			PersistentDataContainer container = meta.getPersistentDataContainer();
-			Damageable damage = (Damageable) meta;
-			int dmg = damage.getDamage();
-			
-			// Check for refill in offhand
-			ItemStack offItem = ply.getInventory().getItemInOffHand();
-			if (dmg > 1 && offItem != null && offItem.getType() == Main.getTobacco())
-			{
-				// "Repair" the pipe
-				damage.setDamage(Math.max(dmg - 15, 1));
-				item.setItemMeta((ItemMeta)damage);
-				ply.getInventory().setItemInMainHand(item);
-				
-				// Take the "tobacco"
-				offItem.setAmount(offItem.getAmount() - 1);
-				ply.getInventory().setItemInOffHand(offItem);
-				
-				// Cancel event
-				event.setCancelled(true);
-				return;
-			}
-			
-			// Is the pipe empty?
-			if (dmg >= 58)
-			{
-				// Cancel event
-				event.setCancelled(true);
-				return;
-			}
-			
+
 			// Is it a smoking pipe?
 			if (container.has(Main.getKey(), PersistentDataType.INTEGER))
 			{
+				// Get damage
+				Damageable damage = (Damageable) meta;
+				int dmg = damage.getDamage();
+
+				// Check for refill in offhand
+				ItemStack offItem = ply.getInventory().getItemInOffHand();
+				if (dmg > 1 && offItem != null && offItem.getType() == Main.getTobacco())
+				{
+					// "Repair" the pipe
+					damage.setDamage(Math.max(dmg - 15, 1));
+					item.setItemMeta((ItemMeta)damage);
+					ply.getInventory().setItemInMainHand(item);
+
+					// Take the "tobacco"
+					offItem.setAmount(offItem.getAmount() - 1);
+					ply.getInventory().setItemInOffHand(offItem);
+
+					// Cancel event
+					event.setCancelled(true);
+					return;
+				}
+
+				// Is the pipe empty?
+				if (dmg >= 58)
+				{
+					// Cancel event
+					event.setCancelled(true);
+					return;
+				}
+
 				// Create smoke fx
 				World world = ply.getWorld();
 				Location loc = ply.getEyeLocation();
-				
+
 				world.playSound(ply.getLocation(), Sound.BLOCK_GRASS_HIT, 0.75f, 0.8f);
-				
+
 				Vector vec = ply.getEyeLocation().getDirection();
 				vec.multiply(0.3D);
 				loc.add(vec);
 				vec.multiply(0.066D);
-				
+
 				Random rand = new Random();
 				for (int i = 0; i < 10; ++i)
 				{
@@ -100,10 +102,10 @@ public class SmokeListener implements Listener
 					Vector mergeVec = vec.add(newVec);
 					world.spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, loc, 0, mergeVec.getX(), mergeVec.getY(), mergeVec.getZ());
 				}
-				
+
 				// Cooldown
 				ply.setCooldown(Material.WOODEN_HOE, 20);
-				
+
 				// Durability
 				damage.setDamage(Math.min(dmg + 2, 58));
 				item.setItemMeta((ItemMeta)damage);
@@ -115,7 +117,7 @@ public class SmokeListener implements Listener
 				{
 					ply.getInventory().setItemInOffHand(item);
 				}
-				
+
 				// Cancel event
 				event.setCancelled(true);
 			}
