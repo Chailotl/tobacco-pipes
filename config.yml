@@ -1,2 +1,5 @@
 # What item should be the "tobacco"
 tobacco: GRASS
+
+# What custom model data should tobacco pipes have?
+customModelData: 1
