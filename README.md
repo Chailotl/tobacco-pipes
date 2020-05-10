@@ -2,7 +2,7 @@
   <img src="https://i.imgur.com/xcxtzPA.png">
 </p>
 
-Take a break inside a local tavern and pull out your trusty pipe!
+Take a break inside a local tavern and pull out your trusty pipe without the lung cancer! You can additionally set the custom model data, here is an [example resource pack](https://github.com/Rausy/tobacco-pipes/raw/master/TobaccoPipes.zip) that makes use of it.
 
 <p align="center">
   <img src="https://i.imgur.com/hXTBMEf.gif">
@@ -17,6 +17,9 @@ Craft a tobacco pipe with a bowl and a stick, then hold grass in your off hand t
 ```yaml
 # What item should be the "tobacco"
 tobacco: GRASS
+
+# What custom model data should tobacco pipes have?
+customModelData: 1
 ```
 
 ## Commands
