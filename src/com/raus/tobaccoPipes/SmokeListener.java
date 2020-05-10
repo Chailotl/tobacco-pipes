@@ -118,6 +118,16 @@ public class SmokeListener implements Listener
 					ply.getInventory().setItemInOffHand(item);
 				}
 
+				// Swing arm
+				if (event.getHand() == EquipmentSlot.HAND)
+				{
+					ply.swingMainHand();
+				}
+				else
+				{
+					ply.swingOffHand();
+				}
+
 				// Cancel event
 				event.setCancelled(true);
 			}
