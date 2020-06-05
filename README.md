@@ -2,7 +2,7 @@
   <img src="https://i.imgur.com/xcxtzPA.png">
 </p>
 
-Take a break inside a local tavern and pull out your trusty pipe without the lung cancer! You can additionally set the custom model data, here is an [example resource pack](https://github.com/Rausy/resource-packs/blob/master/Tobacco_Pipes.zip) that makes use of it.
+Take a break inside a local tavern and pull out your trusty pipe without the lung cancer! You can additionally set the custom model data, here is an [example resource pack](https://github.com/Rausy/resource-packs/raw/master/Tobacco_Pipes.zip) that makes use of it.
 
 <p align="center">
   <img src="https://i.imgur.com/hXTBMEf.gif">
