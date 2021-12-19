@@ -1,4 +1,4 @@
-package com.raus.tobaccoPipes;
+package com.chai.tobaccoPipes;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

@@ -1,7 +1,7 @@
 name: TobaccoPipes
 description: Tobacco pipes you can smoke with
-author: Raus
-main: com.raus.tobaccoPipes.Main
+author: Chai
+main: com.chai.tobaccoPipes.Main
 version: 1.0
 api-version: 1.15
 
