@@ -11,7 +11,7 @@ Take a break inside a local tavern and pull out your trusty pipe without the lun
 ## Usage
 Craft a tobacco pipe with a bowl and a stick, then hold grass in your off hand to refill your pipe. Smoke away!
 
-![How to craft](https://i.imgur.com/CLxpLAn.png)
+![How to craft](https://i.imgur.com/)
 
 ## Config
 ```yaml
